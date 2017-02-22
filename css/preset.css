@@ -3,8 +3,6 @@
 @import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i';
 @import 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700';
 
-
-
 *{
     margin: 0;
     padding: 0;
@@ -52,7 +50,7 @@ p{
     text-transform: uppercase;
 }
 .Common span{
-    background: #e085c9 none repeat scroll 0 0;
+    background: #f7465b none repeat scroll 0 0;
     display: block;
     height: 3px;
     margin: 0 auto;
@@ -126,7 +124,7 @@ p{
     background: #33302D;
 }
 .BackTo{
-    background: #e085c9 none repeat scroll 0 0;
+    background: #33302D none repeat scroll 0 0;
     bottom: 35px;
     color: #979797;
     cursor: pointer;
@@ -137,6 +135,14 @@ p{
     text-align: center;
     width: 50px;
     z-index: 9;
+    -webkit-transition:all 500ms ease;
+    -moz-transition:all 500ms ease;
+    -ms-transition:all 500ms ease;
+    -o-transition:all 500ms ease;
+    transition:all 500ms ease;
+}
+.BackTo:hover{
+    background: #CC6699;
 }
 .BackTo a{
     color: #fff;

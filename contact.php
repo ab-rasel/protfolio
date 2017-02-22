@@ -1,21 +1,20 @@
 <?php
-$con_name = $_POST['con_name'];
-$con_email = $_POST['con_email'];
-$con_message = $_POST['con_message'];
-
-$to ='shagora061@gmail.com';
-
-$message = $con_name.'<br/><br/>';
-$message .= $con_message.'<br/><br/>';
-$message .= 'Best Regards';
-
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-
-
-// More headers
-$headers .= 'From: <'.$con_email.'>' . "\r\n";
-mail($to, $con_message, $message, $headers);
-
-echo 'send your mail';
-header('location: contact.html');
+    $name = $_GET['name'];
+    $email =$_GET['email'];
+    $msg = $_GET['msg'];
+    $to ='shagors333@gmail.com';
+    echo $name;
+    $message = $name.'<br><br>';
+    $message .= $email.'<br><br>';
+    $message .= $msg.'<br>';
+    $message .= 'Good Bless You';
+    
+    $headers = "MIME-Version: 1.0" ."r\n";
+    $headers .= "content-type:text/html;charset:UTF-8"."r\n";
+    
+    //more header
+    $headers .='From: <'.$email.'>'."r\n";
+    
+    mail($to, $headers, $message);
+    header('location:f.html');
+?>

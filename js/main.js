@@ -26,15 +26,6 @@ $(document).ready(function() {
         }
     });
 
-    /*
-     * wow start
-     */
-    new WOW().init();
-
-    /*
-     * skill start
-     */
-
     $('.singleSkill').appear();
 
     $('.singleSkill').on('appear', function() {
@@ -56,12 +47,41 @@ $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip({
         });
     });
+    $('#Grid').themeWar();
+    /*ClientReview slider*/
+    $('.ReviewSecSlider').owlCarousel({
+        items: 1,
+        navigationText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+        navigation: true,
+        autoPlay: false,
+        loop: false,
+        pagination: false,
+        mouseDrag: false,
+        touchDrag: false,
+		responsive:true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            800: {
+                items: 1
+            }, 
+			1000: {
+                items: 1
+            }
+        }
 
+    });
+
+    /* $('.FunfactSec').parallax({imageSrc: 'images/bg2.jpg'}); */
     /*Typed Carosul start*/
 
     $(function() {
         $(".Typeing").typed({
-            strings: ["Rasel...", "Designer...", "Developer..."],
+            strings: ["shagor...", "Designer...", "Developer..."],
             typeSpeed: 80,
             loop: true,
             stringsElement: null,
@@ -69,14 +89,13 @@ $(document).ready(function() {
             backDelay: 1000
         });
 
-    });
+});
 
     /*Typed Carosul end*/
-
     /*MobileMenu Start Here*/
 
     $('.scrolls a').on('click', function() {
-        $('html, body').animate({scrollTop: $(this.hash).offset().top - 70}, 1000);
+        $('html, body').animate({scrollTop: $(this.hash).offset().top - (50)}, 1000);
         return false;
     });
 
@@ -88,7 +107,7 @@ $(document).ready(function() {
         var rangeTop = 200;
         var rangeBottom = 500;
 
-        $('.main-menu').find('.scrolls > a').each(function() {
+        $('.MainMenu').find('.scrolls > a').each(function() {
             var atr = $(this).attr('href');
             if ($(atr).length > 0)
             {
@@ -102,7 +121,7 @@ $(document).ready(function() {
 
             if (winTop > contentTop[i] - rangeTop) {
 
-                $('.main-menu li.scrolls')
+                $('.MainMenu li.scrolls')
                         .removeClass('active')
                         .eq(i).addClass('active');
             }
@@ -110,19 +129,23 @@ $(document).ready(function() {
 
     }
 
-    /***********************************
-     //     * Main Menu
-     //     ***********************************/
+    $(".mobileMenu").on('click', function() {
+        $(".MainMenu > ul").slideToggle('slow');
+        $(this).toggleClass('active');
+    });
+    /* MobileMenu End Here*/
+
+    /* Main Menu Fixed on Top Start*/
+
     $(window).on('scroll', function() {
-        if ($(window).scrollTop() > 90)
+        if ($(window).scrollTop() > 0)
         {
-            $(".Hmenu").addClass('fixedHeader');
+            $(".MenuBar").addClass('FixedMenu');
         }
         else
         {
-            $(".Hmenu").removeClass('fixedHeader');
+            $(".MenuBar").removeClass('FixedMenu');
         }
-
         /************ Menu Active on Scroll **********************/
         Scroll();
 
@@ -189,47 +212,7 @@ $(document).ready(function() {
             backgroundColor: '#d3cfcf'
         });
     }
-    $('#Grid').themeWar();
+    new WOW().init();
 
-    /*SKILLs Section START*/
-    /*
-     * 
-     */
-    // Our Skills
-    //========================
-    if ($(".skillItem").length > 0)
-    {
-        $('.skillItem').appear();
-        $('.skillItem').on('appear', loadSkills);
-    }
-    var coun = true;
-    function loadSkills()
-    {
-        $(".skillItem").each(function() {
-            var datacount = $(this).attr("data-limit");
-            $(".SkillsBar", this).animate({'width': datacount + '%'}, 2000);
-            if (coun)
-            {
-                $(this).find('.ppp').each(function() {
-                    var $this = $(this);
-                    $({Counter: 0}).animate({Counter: datacount}, {
-                        duration: 2000,
-                        easing: 'swing',
-                        step: function() {
-                            $this.text(Math.ceil(this.Counter) + '%');
-                        }
-                    });
-                });
-
-            }
-        });
-        coun = false;
-    }
-
-    /*SKILLS Section End*/
-    $(".mobileMenu").on('click', function() {
-        $(".main-menu").slideToggle('slow');
-        $(this).toggleClass('active');
-    });
 });
 
